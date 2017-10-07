@@ -23,6 +23,10 @@
         }
     },
     "extra": {
+    "branch-alias": {
+            "dev-master": "1.0-dev",
+            "dev-develop": "1.0-dev"
+        }
     },
     "scripts": {
         "cs-check": "phpcs",
