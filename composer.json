@@ -1,0 +1,35 @@
+{
+    "name": "masterflash-ru/skeleton",
+    "description": "Стартовое приложение для создания нового сайта",
+    "type": "project",
+    "license": "BSD-3-Clause",
+    "keywords": [
+        "simba",
+        "mvc",
+        "masterflash"
+    ],
+    "homepage": "https://masterflash.ru/",
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "require": {
+        "php": "^7.0",
+        "zendframework/zend-component-installer": "^1.0 || ^0.7 || ^1.0.0-dev@dev",
+        "zendframework/zend-skeleton-installer": "^1.0 || ^0.1.3 || ^1.0.0-dev@dev",
+        "zendframework/zend-mvc": "^3.0.1",
+        "zfcampus/zf-development-mode": "^3.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Application\\": "module/Application/src/"
+        }
+    },
+    "extra": [],
+    "scripts": {
+        "cs-check": "phpcs",
+        "cs-fix": "phpcbf",
+        "development-disable": "zf-development-mode disable",
+        "development-enable": "zf-development-mode enable",
+        "development-status": "zf-development-mode status",
+        "post-create-project-cmd": ["@development-enable"]
+    }
+}
