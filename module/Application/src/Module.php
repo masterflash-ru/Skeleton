@@ -7,6 +7,10 @@
 
 namespace Application;
 
+use Zend\Session\SessionManager;
+use Zend\Mvc\MvcEvent;
+use Zend\Session\Container;
+
 class Module
 {
 const VERSION = '1.0.0-dev';
@@ -14,4 +18,10 @@ const VERSION = '1.0.0-dev';
     {
         return include __DIR__ . '/../config/module.config.php';
     }
+public function onBootstrap(MvcEvent $event)
+{
+        //устанавливаем менеджер сессии по умолчанию
+        $manager = new SessionManager();
+        Container::setDefaultManager($manager);
+}
 }
