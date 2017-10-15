@@ -42,7 +42,7 @@ return [
 	
 	// Настройка кэша.
     'caches' => [
-        'FilesystemCache' => [
+        'DefaultSystemCache' => [
             'adapter' => [
                 'name'    => Filesystem::class,
                 'options' => [
