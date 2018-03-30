@@ -11,6 +11,16 @@ use Zend\Router\Http\Literal;
 use Zend\Router\Http\Segment;
 use Zend\ServiceManager\Factory\InvokableFactory;
 
+use Mf\Stream\Controller\IndexController as Stream;
+use Mf\Storage\Filter\Service\Gd;
+use Mf\Storage\Filter\ImgResize;
+use Mf\Storage\Filter\ImgOptimize;
+use Mf\Storage\Filter\Watermark;
+
+use Zend\Validator\File\IsImage;
+use Zend\Validator\File\ImageSize;
+use Mf\Storage\Filter\CopyToStorage;
+
 return [
     'router' => [
         'routes' => [

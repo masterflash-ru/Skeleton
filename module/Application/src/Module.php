@@ -10,6 +10,7 @@ namespace Application;
 
 use Zend\Session\SessionManager;
 use Zend\Mvc\MvcEvent;
+use Zend\EventManager\Event;
 use Zend\Session\Container;
 use Application\Service\GetControllersInfo;
 use Application\Service\GetMap;
