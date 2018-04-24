@@ -67,4 +67,7 @@ return [
             __DIR__ . '/../view',
         ],
     ],
+    /*публичная папка с медиаматериалом*/
+    'public_media_folder'=>"media",
+    
 ];
