@@ -14,13 +14,14 @@ use Zend\Captcha;
 return [
     //соединение с базой + имя драйвера
     'db' => [
-      'driver'=>'MysqlPdo',
-      "host"=>"localhost",
-      'login'=>"root",
-      "password"=>"vfibyf",
-      "database"=>"simba4",
-      "locale"=>"ru_RU",
-      "character"=>"utf8"
+        'driver'=>'MysqlPdo',
+        //"unix_socket"=>"/tmp/mysql.sock",
+        "host"=>"localhost",
+        'login'=>"root",
+        "password"=>"vfibyf",
+        "database"=>"simba4",
+        "locale"=>"ru_RU",
+        "character"=>"utf8"
     ],
     //конфигурация сессий (куки)
     'session_config' => [
