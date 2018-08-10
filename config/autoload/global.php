@@ -63,9 +63,6 @@ return [
         ],
     ],
 
-    "locale_default"=>"ru_RU",
-    "locale_enable_list"=>["ru_RU","en_US"], //если моноязычный сайт, то оставить только один элемент!
-
     //настройки капчи
     "captcha"=>[
       "adapter"=>Captcha\Image::class,                           //используемый на сайте вариант капчи
