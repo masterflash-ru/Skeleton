@@ -10,16 +10,16 @@ use Exception;
 
 class GetMap 
 {
-    protected $streamService;
+    protected $connection;
 	protected $Router;
 	protected $type="sitemapindex";
     protected $locale="ru_RU";
     protected $name;
 
 	
-    public function __construct($Router, array $options,$streamService) 
+    public function __construct($Router, array $options,$connection) 
     {
-        $this->streamService=$streamService;
+        $this->connection=$connection;
 		$this->Router=$Router;
 		if(isset($options["type"])){
             $this->type=$options["type"];
@@ -40,16 +40,14 @@ class GetMap
 	{
         if ($this->type=="sitemapindex"){
             /*получить информацию для генерации sitemapindex*/
-            $maxLastMod=$this->streamService->getMaxLastMod();
-            return ["name"=>"stream","lastmod"=>$maxLastMod->getLastmod()];
+            return ["name"=>"home","lastmod"=>null];
         }
         /*получение списка всех страниц и генерация URL*/
         if ($this->type=="sitemap"){
-            if ($this->name!="stream"){
+            if ($this->name!="home"){
                 /*если запрос не принадлежит этому модулю то выход*/
                 return [];
             }
-            $items=$this->streamService->getMap();
             $rez=[];
             foreach ($items as $item){
                 $rez[]=[

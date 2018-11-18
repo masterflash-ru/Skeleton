@@ -2,7 +2,7 @@
 namespace Application\Service\Factory;
 
 use Interop\Container\ContainerInterface;
-use Mf\Stream\Service\Stream;
+
 
 /*
 Фабрика 
@@ -20,8 +20,8 @@ class GetMapFactory
 public function __invoke(ContainerInterface $container, $requestedName, array $options = null)
 {
     $Router=$container->get("Application")->getMvcEvent()->getRouter();
-    $streamService = $container->get(Stream::class);
-    return new $requestedName($Router,$options,$streamService);
+    $connection = $container->get('ADO\Connection');
+    return new $requestedName($Router,$options,$connection);
 }
 }
 

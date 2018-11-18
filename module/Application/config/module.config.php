@@ -76,6 +76,13 @@ return [
             __DIR__ . '/../view',
         ],
     ],
+	 'service_manager' => [
+			  'factories' => [//сервисы-фабрики
+                  //Service\GetControllersInfo::class => Service\Factory\GetControllersInfoFactory::class,
+                  Service\GetMap::class => Service\Factory\GetMapFactory::class,
+			  ],
+	  ],
+
     /*публичная папка с медиаматериалом*/
     'public_media_folder'=>"media",
     "locale_default"=>"ru_RU",
