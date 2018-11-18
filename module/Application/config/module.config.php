@@ -12,14 +12,23 @@ use Zend\Router\Http\Segment;
 use Zend\ServiceManager\Factory\InvokableFactory;
 
 use Mf\Stream\Controller\IndexController as Stream;
+
+/*адаптеры ресайза*/
 use Mf\Storage\Filter\Service\Gd;
+use Mf\Storage\Filter\Service\Consoleimagick as ImgResizeAdapter;
+use Mf\Storage\Filter\Service\Imagick;
+
+/*сервисы (фильтры) ресайза, оптимизации и наложения водных знаков на фото*/
 use Mf\Storage\Filter\ImgResize;
 use Mf\Storage\Filter\ImgOptimize;
 use Mf\Storage\Filter\Watermark;
 
+/*фильтр копировщик файлов в хранилище*/
+use Mf\Storage\Filter\CopyToStorage;
+
 use Zend\Validator\File\IsImage;
 use Zend\Validator\File\ImageSize;
-use Mf\Storage\Filter\CopyToStorage;
+
 
 return [
     'router' => [
