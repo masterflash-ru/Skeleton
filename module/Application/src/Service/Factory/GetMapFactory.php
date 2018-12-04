@@ -20,7 +20,7 @@ class GetMapFactory
 public function __invoke(ContainerInterface $container, $requestedName, array $options = null)
 {
     $Router=$container->get("Application")->getMvcEvent()->getRouter();
-    $connection = $container->get('ADO\Connection');
+    $connection = $container->get('DefaultSystemDb');
     return new $requestedName($Router,$options,$connection);
 }
 }
