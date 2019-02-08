@@ -13,6 +13,7 @@ use Zend\ServiceManager\Factory\InvokableFactory;
 
 use Mf\Stream\Controller\IndexController as Stream;
 
+
 /*адаптеры ресайза*/
 use Mf\Imglib\Filter\Adapter\Gd;
 use Mf\Imglib\Filter\Adapter\Consoleimagick as ImgResizeAdapter;
@@ -22,6 +23,20 @@ use Mf\Imglib\Filter\Adapter\Imagick;
 use Mf\Imglib\Filter\ImgResize;
 use Mf\Imglib\Filter\ImgOptimize;
 use Mf\Imglib\Filter\Watermark;
+/*
+как обрабатывать фото определяют эти константы:
+define("IMG_METHOD_SCALE_WH_CROP",1);  //точное вырезание
+define("IMG_METHOD_SCALE_FIT_W",2);    //точно по горизонатали, вертикаль пропорционально
+define("IMG_METHOD_SCALE_FIT_H",3);    //точно к вертикали, горизонталь пропорционально
+define("IMG_METHOD_CROP", 4);          //просто вырезать из исходного часть
+
+define("IMG_ALIGN_CENTER", 0);         //выравнивать по центру
+define("IMG_ALIGN_LEFT", -1);          //выравнивать по левой части
+define("IMG_ALIGN_RIGHT", +1);         //выравнивать по правой
+define("IMG_ALIGN_TOP",-1);            //выравнивать по верху
+define("IMG_ALIGN_BOTTOM", +1);        //выравнивать по низу
+*/
+
 
 /*фильтр копировщик файлов в хранилище*/
 use Mf\Storage\Filter\CopyToStorage;
