@@ -14,14 +14,14 @@ use Zend\ServiceManager\Factory\InvokableFactory;
 use Mf\Stream\Controller\IndexController as Stream;
 
 /*адаптеры ресайза*/
-use Mf\Storage\Filter\Service\Gd;
-use Mf\Storage\Filter\Service\Consoleimagick as ImgResizeAdapter;
-use Mf\Storage\Filter\Service\Imagick;
+use Mf\Imglib\Filter\Adapter\Gd;
+use Mf\Imglib\Filter\Adapter\Consoleimagick as ImgResizeAdapter;
+use Mf\Imglib\Filter\Adapter\Imagick;
 
 /*сервисы (фильтры) ресайза, оптимизации и наложения водных знаков на фото*/
-use Mf\Storage\Filter\ImgResize;
-use Mf\Storage\Filter\ImgOptimize;
-use Mf\Storage\Filter\Watermark;
+use Mf\Imglib\Filter\ImgResize;
+use Mf\Imglib\Filter\ImgOptimize;
+use Mf\Imglib\Filter\Watermark;
 
 /*фильтр копировщик файлов в хранилище*/
 use Mf\Storage\Filter\CopyToStorage;
