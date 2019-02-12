@@ -16,10 +16,13 @@ use Mf\Stream\Controller\IndexController as Stream;
 
 /*адаптеры ресайза*/
 use Mf\Imglib\Filter\Adapter\Gd;
-use Mf\Imglib\Filter\Adapter\Consoleimagick as ImgResizeAdapter;
+use Mf\Imglib\Filter\Adapter\Consoleimagick  as ImgAdapter;
 use Mf\Imglib\Filter\Adapter\Imagick;
 
-/*сервисы (фильтры) ресайза, оптимизации и наложения водных знаков на фото*/
+/** 
+* адаптеры (фильтры) ресайза, оптимизации и наложения водных знаков на фото
+* это обертка к выбранному адаптеру, см. выше
+*/
 use Mf\Imglib\Filter\ImgResize;
 use Mf\Imglib\Filter\ImgOptimize;
 use Mf\Imglib\Filter\Watermark;
@@ -37,12 +40,19 @@ IMG_ALIGN_TOP            //выравнивать по верху
 IMG_ALIGN_BOTTOM        //выравнивать по низу
 */
 
+/**
+* специальный фильтр для генерации альтернативных форматов изображений
+*/
+use Mf\Imglib\Filter\ImgAlternative;
+
 
 /*фильтр копировщик файлов в хранилище*/
 use Mf\Storage\Filter\CopyToStorage;
 
 use Zend\Validator\File\IsImage;
 use Zend\Validator\File\ImageSize;
+
+
 
 
 return [
