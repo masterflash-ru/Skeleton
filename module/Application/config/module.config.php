@@ -111,7 +111,7 @@ return [
     /*публичная папка с медиаматериалом*/
     'public_media_folder'=>"media",
     "locale_default"=>"ru_RU",
-    "locale_enable_list"=>["ru_RU","en_US"], //если моноязычный сайт, то оставить только один элемент!
+    //"locale_enable_list"=>["ru_RU","en_US"], //если мультиязычный, то расскоментировать и указать список допустимых локалей
     
     /*Канонический адрес сайта*/
     "ServerDefaultUri"=>"http://".trim($_SERVER["SERVER_NAME"],"w."),
