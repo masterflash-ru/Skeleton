@@ -24,21 +24,25 @@ class GetControllersInfo
 		$this->config=$config;
     }
     
-	
-	public function GetDescriptors()
-	{
-		//список для админки стандартной, ничего - выход
-		if ($this->options["name"]) {return [];}
-		if (empty($this->options["locale"])) {$this->options["locale"]=$this->config["locale_default"];}
+    /**
+    * получить все MVC адреса, разбитые по языкам
+    */
+    public function getMvc()
+    {
+		//данный модуль содержит только сайтовские описатели описатели
+		if ($this->options["category"]!="frontend") {return ;}
 
-        /*для меню сайта*/
-        $info["stream"]["description"]="ОПИСАНИЕ ";
-		$rez['name']=[]; /*массив имен элементов в выпадающем списке*/
-		$rez['url']=[];  /*массив URL для перехода*/
-		$rez['mvc']=[];  /*массив сериализованных элементов MVC для перехода*/
-
-		$info["stream"]["urls"]=$rez;
+		//Линейные таблицы
+		$info["app"]["description"]="Приложение";
+		$rez['name']=[];
+		$rez['url']=[];
+		$rez['mvc']=[];
+		
+        $info["app"]["urls"]=$rez;
 		return $info;
-	}
+
+        
+    }
+
 	
 }

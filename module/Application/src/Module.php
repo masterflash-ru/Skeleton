@@ -18,8 +18,6 @@ use Application\Service\GetMap;
 
 class Module
 {
-    /*экземпляр сервис-менеджера*/
-    protected $ServiceManager;
     
     
 public function getConfig()
@@ -33,44 +31,31 @@ public function onBootstrap(MvcEvent $event)
     $manager = new SessionManager();
     Container::setDefaultManager($manager);
     /*
-    $this->ServiceManager=$event->getApplication()-> getServiceManager();
+    $ServiceManager=$event->getApplication()-> getServiceManager();
 	$eventManager = $event->getApplication()->getEventManager();
     $sharedEventManager = $eventManager->getSharedManager();
+    
     // объявление слушателя для получения списка MVC для генерации меню сайта 
 	$sharedEventManager->attach("simba.admin", "GetControllersInfoAdmin", [$this, 'GetControllersInfoAdmin']);
+    
+    //объявление слушателя для получения всех MVC адресов разбитых по языкам
+    $sharedEventManager->attach("simba.admin", "GetMvc", function(Event $event) use ($ServiceManager){
+        $category=$event->getParam("category",NULL);
+        $service=$ServiceManager->build(GetControllersInfo::class,["category"=>$category]);
+        return $service->GetMvc();
+    });
+    
+    
     //слушатель для генерации карты сайта
-    $sharedEventManager->attach("simba.sitemap", "GetMap", [$this, 'GetMap']);
+    $sharedEventManager->attach("simba.sitemap", "GetMap", function(Event $event) use ($ServiceManager){
+        $name=$event->getParam("name",NULL);
+        $type=$event->getParam("type",NULL);
+        $locale=$event->getParam("locale",NULL);
+        $service=$ServiceManager->build(GetMap::class,["name"=>$name,"locale"=>$locale,"type"=>$type]);
+        return $service->GetMap();
+    });
     */
 
 }
-/*
-слушает событие GetControllersInfoAdmin 
-для визуаллизации в админке маршрутов/путей в меню админки
-в параметрах передается:
-name=>имя_раздела "admin", ""
-container - объект с интерфейсом Interop\Container\ContainerInterface - то что передается в фабрики
-* /
-public function GetControllersInfoAdmin(Event $event)
-{
-	$name=$event->getParam("name",NULL);
-	$locale=$event->getParam("locale",NULL);
-	//сервис который будет возвращать
-	$service=$this->ServiceManager->build(GetControllersInfo::class,compact("locale","name"));
-	return $service->GetDescriptors();
-}
-
-/**
-*обработчик события GetMap - получение карты сайта
-* /
-public function GetMap(Event $event)
-{
-    $type=$event->getParam("type",NULL);
-    $name=$event->getParam("name",NULL);
-    $locale=$event->getParam("locale",NULL);
-    //сервис который будет возвращать карту
-    $service=$this->ServiceManager->build(GetMap::class,compact("type","locale","name"));
-    return $service->GetMap();
-}
-*/
     
 }
