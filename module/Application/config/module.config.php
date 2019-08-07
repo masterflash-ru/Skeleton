@@ -114,7 +114,7 @@ return [
     //"locale_enable_list"=>["ru_RU","en_US"], //если мультиязычный, то расскоментировать и указать список допустимых локалей
     
     /*Канонический адрес сайта*/
-    "ServerDefaultUri"=>"http://".trim($_SERVER["SERVER_NAME"],"w."),
+    "ServerDefaultUri"=>$_SERVER["REQUEST_SCHEME"]."://".trim($_SERVER["SERVER_NAME"],"w."),
 
 
 ];
