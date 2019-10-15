@@ -53,7 +53,11 @@ use Zend\Validator\File\IsImage;
 use Zend\Validator\File\ImageSize;
 
 
-
+if (empty($_SERVER["SERVER_NAME"])){
+    //скорей всего запустили из консоли
+    $_SERVER["SERVER_NAME"]="localhost";
+    $_SERVER["REQUEST_SCHEME"]="http";
+}
 
 return [
     'router' => [
