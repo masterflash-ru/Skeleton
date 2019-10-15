@@ -52,7 +52,9 @@ return [
                     // Store cached data in this directory.
                     'cache_dir' => './data/cache',
                     // Store cached data for 3 hour.
-                    'ttl' => 60*60*2 
+                    'ttl' => 60*60*2,
+                    'file_permission'=>0666,
+                    'dir_permission'=>0770,
                 ],
             ],
             'plugins' => [

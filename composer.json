@@ -12,11 +12,11 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "require": {
-        "php": "^7.0 || ^7.1",
+        "php": "^7.1 || ^7.2 || ^7.3 || ^7.4",
         "zendframework/zend-component-installer": "^1.0 || ^0.7 || ^1.0.0-dev@dev",
-        "zendframework/zend-mvc": "^3.0.1",
-        "zfcampus/zf-development-mode": "^3.0",
-        "zendframework/zend-session": "^2.7"
+        "zendframework/zend-mvc": "^3.1.0",
+        "zfcampus/zf-development-mode": "^3.2",
+        "zendframework/zend-session": "^2.8"
     },
     "autoload": {
         "psr-4": {
@@ -26,8 +26,7 @@
     "extra": {
     },
     "scripts": {
-        "cs-check": "phpcs",
-        "cs-fix": "phpcbf",
+        "post-update-cmd": "rm -rf ./data/cache/*",
         "development-disable": "zf-development-mode disable",
         "development-enable": "zf-development-mode enable",
         "development-status": "zf-development-mode status",
