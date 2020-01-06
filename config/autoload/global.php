@@ -2,14 +2,14 @@
 /**
  * Глобальная конфигурация, при необходимости нужно расскоментировать некоторые настройки, например, капчу
  */
-use Zend\Session\Storage\SessionArrayStorage;
-use Zend\Session\Validator\RemoteAddr;
-use Zend\Session\Validator\HttpUserAgent;
-use Zend\Cache\Storage\Adapter\Filesystem;
-use Zend\Cache\Storage\Plugin\Serializer;
+use Laminas\Session\Storage\SessionArrayStorage;
+use Laminas\Session\Validator\RemoteAddr;
+use Laminas\Session\Validator\HttpUserAgent;
+use Laminas\Cache\Storage\Adapter\Filesystem;
+use Laminas\Cache\Storage\Plugin\Serializer;
 
 //капча, если не используется, можно удалить соответсвующую секцию
-use Zend\Captcha;
+use Laminas\Captcha;
 
 return [
     "databases"=>[

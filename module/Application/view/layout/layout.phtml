@@ -4,19 +4,20 @@
 <meta charset="utf-8">
 <?= $this->headTitle()->setSeparator(' | ')->setAutoEscape(false) ?>
 <?=$this->headMeta()?>
-<?= $this->headLink()->prependStylesheet($this->basePath('css/style.css'))?>
+<?= $this->headLink()
+    ->appendStylesheet($this->basePath('css/style.css'))?>
 </head>
 <body>
     <?=$this->content;?>
           
             
             <footer>
-                <p>&copy; 2005 - <?= date('Y') ?> by Zend Technologies Ltd. All rights reserved.</p>
+                <p>&copy; 2005 - <?= date('Y') ?> by Masterflash All rights reserved.</p>
             </footer>
         </div>
 
 <?= $this->headScript()
-            ->prependFile($this->basePath('js/jquery-3.1.0.min.js'))
+    ->appendFile($this->basePath('js/jquery-3.1.0.min.js'))
 ?>
 <?= $this->inlineScript() ?>
 </body>

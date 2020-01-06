@@ -1,15 +1,12 @@
 <?php
 /**
- * @link      http://github.com/zendframework/ZendSkeletonApplication for the canonical source repository
- * @copyright Copyright (c) 2005-2016 Zend Technologies USA Inc. (http://www.zend.com)
- * @license   http://framework.zend.com/license/new-bsd New BSD License
  */
 
 namespace Application;
 
-use Zend\Router\Http\Literal;
-use Zend\Router\Http\Segment;
-use Zend\ServiceManager\Factory\InvokableFactory;
+use Laminas\Router\Http\Literal;
+use Laminas\Router\Http\Segment;
+use Laminas\ServiceManager\Factory\InvokableFactory;
 
 use Mf\Stream\Controller\IndexController as Stream;
 
@@ -49,8 +46,8 @@ use Mf\Imglib\Filter\ImgAlternative;
 /*фильтр копировщик файлов в хранилище*/
 use Mf\Storage\Filter\CopyToStorage;
 
-use Zend\Validator\File\IsImage;
-use Zend\Validator\File\ImageSize;
+use Laminas\Validator\File\IsImage;
+use Laminas\Validator\File\ImageSize;
 
 
 if (empty($_SERVER["SERVER_NAME"])){
